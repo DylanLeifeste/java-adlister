@@ -14,6 +14,11 @@ public class CountServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+        String reset = request.getParameter("reset");
+
+        if (reset != null){
+            count = 0;
+        }
 
          count += 1;
         out.println("<h1> Count: " + count + "</h1>");
